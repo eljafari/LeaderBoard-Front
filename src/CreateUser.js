@@ -1,5 +1,7 @@
 import axios from 'axios';
-import React, {useState} from 'react'
+import React, {useState} from 'react';
+import './CreateUser.css';
+import { Link } from 'react-router-dom';
 
 const CreateUser = () => {
     const [name, setName] = useState('');
@@ -24,7 +26,9 @@ const CreateUser = () => {
             console.error('Error creating user:', error);
             });
     };
-    return (<div>
+    return (
+    <div>
+      <Link className='home' to="/">Back Home</Link>
         <h2>Create New User</h2>
         <form>
           <div>

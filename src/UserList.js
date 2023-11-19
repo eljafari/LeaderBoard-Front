@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import './UserList.css';
 
 function UserList() {
   const [users, setUsers] = useState([]);
@@ -56,15 +57,15 @@ function UserList() {
       <ul>
         {users.map((user) => (
           <li key={user.id}>
-            <button onClick={() => deleteUser(user.id)}>Delete</button>
+            <button className='button delete' onClick={() => deleteUser(user.id)}>Delete</button>
             <span>Name: {user.name}</span>
             <span>Points: {user.points}</span>
-            <button onClick={() => updateUserPoints(user, 1)}>+</button>
-            <button onClick={() => updateUserPoints(user, -1)}>-</button>
+            <button className='button' onClick={() => updateUserPoints(user, 1)}>+</button>
+            <button className='button'  onClick={() => updateUserPoints(user, -1)}>-</button>
           </li>
         ))}
       </ul>
-      <Link to="/create-user">Add User</Link>
+      <Link className='addButton' to="/create-user">Add User</Link>
     </div>
   );
 }
