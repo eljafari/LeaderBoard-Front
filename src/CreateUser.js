@@ -27,27 +27,27 @@ const CreateUser = () => {
             });
     };
     return (
-    <div>
+    <div className='nUserContainer'>
       <Link className='home' to="/">Back Home</Link>
         <h2>Create New User</h2>
         <form>
-          <div>
+          <div className='inputWrap'>
             <label>Name:</label>
             <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
           </div>
-          <div>
+          <div className='inputWrap'>
             <label>Age:</label>
             <input type="number" value={age} onChange={(e) => setAge(e.target.value)} />
           </div>
-          <div>
+          <div className='inputWrap'>
             <label>Point:</label>
             <input type="text" value={point} onChange={(e) => setPoint(e.target.value)} />
           </div>
-          <div>
+          <div className='inputWrap'>
             <label>Address:</label>
             <input type="text" value={address} onChange={(e) => setAddress(e.target.value)} />
           </div>
-          <button type="button" onClick={handleCreateUser}>Create User</button>
+          <button className='createUserBtn' type="button" onClick={handleCreateUser}>Create User</button>
         </form>
       </div>
     );
