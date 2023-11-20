@@ -1,40 +1,36 @@
-.searchBox{
-    width: 50%;
+.userContainer{
+  padding: 1rem 10rem;
+  
 }
-.sorting{
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+.usersTb{
+  border-collapse: collapse;
+  width: 100%;
+}
+.usersTb td, .usersTb th{
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+.usersTb tr:nth-child(even){
+  background-color: #f2f2f2;
+}
+.usersTb tr:hover {
+  background-color: #ddd;
+}
+.usersTb th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #656666;
+  color: white;
 }
 
-div {
-    text-align: center;
-  }
-  
-  h2 {
-    font-size: 24px;
-    color: #333;
-  }
-  
-  ul {
-    list-style: none;
-    padding: 1rem 20rem;
-  }
-  
-  
-  li {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 10px 0;
-    padding: 1rem;
-    width: 44rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f5f5f5;
-  }
-  
-  .button {
+.sort{
+  cursor:pointer;
+}
+.sort:hover{
+  background-color:#3e3f3f ;
+}
+  .userButton {
     padding: 5px 10px;
     margin: 0 5px;
     cursor: pointer;
@@ -58,16 +54,13 @@ div {
     right: 1rem;
   }
 
-  button:hover {
+  .userButton:hover {
     background-color: #0056b3;
   }
   
   a {
     display: block;
-    margin-top: 10px;
-    font-weight: bold;
     text-decoration: none;
-    color: #007bff;
   }
   
   a:hover {
@@ -75,7 +68,8 @@ div {
   }
   
   .user-details{
-    padding: 1rem;
-    margin: 0 20rem;
+    width: 100%;
+    padding: 1rem 0;
+    margin: 1rem 0;
     background-color: #e2e1e1;
   }

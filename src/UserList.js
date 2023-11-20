@@ -85,44 +85,47 @@ function UserList() {
   };
 
   return (
-    <div>
+    <div className='userContainer'>
       <h2>Leaderboard Application</h2>
-      <input className='searchBox'
+      <input 
         type="text"
         placeholder="Search by name"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
       />
-      <table>
-        <thead>
-          <tr className='sorting'>
-            <th onClick={() => handleSort('name')}>
-              Sort by Name
-              {sortBy === 'name' && (
-                <span className={`arrow ${sortOrder}`}></span>
-              )}
-            </th>
-            <th onClick={() => handleSort('points')}>
-            Sort by Points
-              {sortBy === 'points' && (
-                <span className={`arrow ${sortOrder}`}></span>
-              )}
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-        <ul>
-          {filteredUsers.map((user) => (
-            <li key={user.id} onClick={() => handleUserClick(user)}>
-            <button className='button delete' onClick={() => deleteUser(user.id)}>Delete</button>
-            <span  onClick={() => handleUserClick(user)}>Name: {user.name}</span>
-            <span>Points: {user.points}</span>
-            <button className='button' onClick={() => updateUserPoints(user, 1)}>+</button>
-            <button className='button'  onClick={() => updateUserPoints(user, -1)}>-</button>
-          </li>
-          ))}
-        </ul>
-        </tbody>
+      <table className='usersTb'>
+        <tr>
+          <th>Delete User</th>
+          <th className='sort' onClick={() => handleSort('name')}>
+          ↑↓ Name
+            {sortBy === 'name'}
+          </th>
+          <th className='sort' onClick={() => handleSort('points')}>
+          ↑↓ Point
+            {sortBy === 'points'}
+          </th>
+          <th>Increase Points</th>
+          <th>Decrease Points</th>
+        </tr>
+        {filteredUsers.map((user) => (
+        <tr key={user.id} onClick={() => handleUserClick(user)}>
+          <td>
+            <button className='userButton delete' onClick={() => deleteUser(user.id)}>Delete</button>
+          </td>
+          <td>
+            <span  onClick={() => handleUserClick(user)}>{user.name}</span>
+          </td>
+          <td>
+            <span>{user.points}</span>
+          </td>
+          <td>
+            <button className='userButton' onClick={() => updateUserPoints(user, 1)}>+</button>
+          </td>
+          <td>
+            <button className='userButton'  onClick={() => updateUserPoints(user, -1)}>-</button>
+          </td>
+        </tr>
+        ))}
       </table>
       <Link className='addButton' to="/create-user">Add User</Link>
       {selectedUser && (
