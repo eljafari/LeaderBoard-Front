@@ -13,7 +13,7 @@ function UserList() {
 
   useEffect(() => {
      // Fetch users from the API endpoint
-    axios.get('http://127.0.0.1:8000/api/users') 
+    axios.get('http://localhost:8000/api/users') 
       .then((response) => {
         setUsers(response.data);
       })
@@ -56,7 +56,7 @@ function UserList() {
   const updateUserPoints = (user, change) => {
     const updatedPoints = user.points + change;
 
-    axios.put(`http://127.0.0.1:8000/api/users/edit/points/${user.id}`, {
+    axios.put(`http://localhost:8000/api/users/edit/points/${user.id}`, {
       points: updatedPoints,
     })
       .then((response) => {

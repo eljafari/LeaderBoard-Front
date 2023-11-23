@@ -1,7 +1,11 @@
 .userContainer{
   padding: 1rem 10rem;
-  
 }
+
+input::placeholder {
+  padding-left: 10px;  
+}
+
 .usersTb{
   border-collapse: collapse;
   width: 100%;
@@ -21,14 +25,14 @@
   padding-bottom: 12px;
   text-align: left;
   background-color: #656666;
-  color: white;
+  color: #fff;
 }
 
 .sort{
   cursor:pointer;
 }
 .sort:hover{
-  background-color:#3e3f3f ;
+  background-color:#656666 ;
 }
   .userButton {
     padding: 5px 10px;
@@ -71,5 +75,5 @@
     width: 100%;
     padding: 1rem 0;
     margin: 1rem 0;
-    background-color: #e2e1e1;
+    background-color: #ddd;
   }

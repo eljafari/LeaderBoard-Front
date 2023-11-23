@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
-import UserList from './UserList';
+import UserList from './UserList/UserList';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import CreateUser from './CreateUser';
+import CreateUser from './CreateUser/CreateUser';
 
 function App() {
   return (
