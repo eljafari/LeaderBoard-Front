@@ -110,7 +110,7 @@ function UserList() {
           <th>Decrease Points</th>
         </tr>
         {filteredUsers.map((user) => (
-        <tr key={user.id} onClick={() => handleUserClick(user)}>
+        <tr key={user.id} >
           <td>
             <button className='userButton delete' onClick={() => deleteUser(user.id)}>Delete</button>
           </td>
