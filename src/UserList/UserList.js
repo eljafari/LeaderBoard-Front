@@ -13,6 +13,10 @@ function UserList() {
 
   useEffect(() => {
      // Fetch users from the API endpoint
+     getUsers();
+  }, []);
+
+  const getUsers = () => {
     axios.get('http://localhost:8000/api/users') 
       .then((response) => {
         setUsers(response.data);
@@ -20,7 +24,7 @@ function UserList() {
       .catch((error) => {
         console.error('Error fetching data:', error);
       });
-  }, []);
+  };
 
   const handleUserClick = (user) => {
     setSelectedUser(user);
@@ -38,19 +42,20 @@ function UserList() {
   };
   
   const filteredUsers = users
-    .filter((user) => user.name.toLowerCase().includes(search.toLowerCase()))
-    .sort((a, b) => {
-      if (sortBy === 'name') {
-        return sortOrder === 'asc'
-          ? a.name.localeCompare(b.name)
-          : b.name.localeCompare(a.name);
-      } else if (sortBy === 'points') {
-        return sortOrder === 'asc'
-          ? a.points - b.points
-          : b.points - a.points;
-      }
-      return 0;
-    });
+  //handle search
+  .filter((user) => user.name.toLowerCase().includes(search.toLowerCase())) 
+  .sort((a, b) => {
+    if (sortBy === 'name') {
+      return sortOrder === 'asc'
+        ? a.name.localeCompare(b.name)
+        : b.name.localeCompare(a.name);
+    } else if (sortBy === 'points') {
+      return sortOrder === 'asc'
+        ? a.points - b.points
+        : b.points - a.points;
+    }
+    return 0;
+  });
 
   // Make a PUT request to update user points
   const updateUserPoints = (user, change) => {
@@ -60,11 +65,8 @@ function UserList() {
       points: updatedPoints,
     })
       .then((response) => {
-        // Update the user's points in the local state
-        const updatedUsers = users.map((u) =>
-          u.id === user.id ? { ...u, points: user.points + change } : u
-        );
-        setUsers(updatedUsers);
+         // Call Get Users to get latest information after update
+        getUsers();
       })
       .catch((error) => {
         console.error('Error updating user points:', error);
